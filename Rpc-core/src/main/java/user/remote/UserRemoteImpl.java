@@ -1,17 +1,16 @@
-package user.controller;
+package user.remote;
 
+import netty.annotation.Remote;
 import netty.domain.Response;
 import netty.util.ResponseUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import user.bean.User;
 import user.service.UserService;
 
+import javax.annotation.Resource;
 import java.util.List;
-
-@Controller
-public class UserController {
-    @Autowired
+@Remote
+public class UserRemoteImpl implements UserRemote{
+    @Resource
     UserService userService;
     public Response saveUser(User user){
         userService.save(user);

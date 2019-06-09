@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="rpc-core" />
+        <module name="netty_consumer" />
       </profile>
     </annotationProcessing>
   </component>
