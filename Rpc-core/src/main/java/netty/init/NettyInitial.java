@@ -44,14 +44,15 @@ public class NettyInitial implements ApplicationListener<ContextRefreshedEvent> 
                     })
                     .option(ChannelOption.SO_BACKLOG, 128)          // (5)
                     .childOption(ChannelOption.SO_KEEPALIVE, true); // 自己实现心跳
-
+            int port=8080;
             // Bind and start to accept incoming connections.
-            ChannelFuture f = b.bind(8080).sync(); // (7)
-            //将服务注册到zookeeper上
+            ChannelFuture f = b.bind(port).sync(); // (7)
+            //将服务注册到zookeeper上这里只注册了一个
            CuratorFramework client= ZookeeperFactory.create();
            InetAddress address=InetAddress.getLocalHost();
-           client.create().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(Constants.SERVER_Path+"/"+address.getHostAddress());
-
+           client.create().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(Constants.SERVER_Path+"/"+address.getHostAddress()+"#"+port+"#");
+           //设置为EPHEMERAL_SEQUENTIAL类型是因为如果不给临时节点加序号的话，就算服务器关闭了，zookeeper节点也可能会有一段时间不会消失。
+            //给ip地址加#号是因为这里用的是递增序号类型的临时节点，会在后面加上由父节点维护的编号，这里加上#就可以方便将编号和前面的ip地址区分，方便取出
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();

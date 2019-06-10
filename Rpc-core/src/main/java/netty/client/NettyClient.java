@@ -14,7 +14,7 @@ import io.netty.handler.codec.Delimiters;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.AttributeKey;
-
+//前期例子，没用
 public class NettyClient {
     public static void main(String[] args) {
         String host="localhost";

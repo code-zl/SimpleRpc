@@ -7,7 +7,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
-
+//服务端改造之前
 public class SimpleServerHandler extends ChannelInboundHandlerAdapter {
 
 
@@ -33,7 +33,7 @@ public class SimpleServerHandler extends ChannelInboundHandlerAdapter {
         ServerRequest request= JSONObject.parseObject(msg.toString(), ServerRequest.class);
         Response resp=new Response();
         resp.setId(request.getId());
-        resp.setResponse("is ok ");
+        resp.setContent("is ok ");
         ctx.channel().writeAndFlush(JSONObject.toJSONString(resp)+"\r\n");//将josn数据转换为string发送出去
 
     }

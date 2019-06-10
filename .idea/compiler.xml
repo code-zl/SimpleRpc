@@ -7,8 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="rpc-core" />
         <module name="netty_consumer" />
+        <module name="user-core" />
+        <module name="rpc-core" />
+        <module name="userapi" />
       </profile>
     </annotationProcessing>
   </component>

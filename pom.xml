@@ -11,6 +11,8 @@
     <modules>
         <module>Rpc-core</module>
         <module>netty_consumer</module>
+        <module>user-api</module>
+        <module>user-core</module>
     </modules>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->

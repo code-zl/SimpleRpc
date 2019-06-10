@@ -1,12 +1,9 @@
-package netty.factory;
+package client.zookeeper;
 
-import com.sun.security.ntlm.Client;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
-
-import java.awt.datatransfer.Clipboard;
 
 public class ZookeeperFactory {
     public static CuratorFramework create(){
